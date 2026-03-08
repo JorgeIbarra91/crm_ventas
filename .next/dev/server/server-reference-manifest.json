@@ -1,21 +1,6 @@
 {
   "node": {
-    "006474d70d69a52344a7d3819cffa96c3ddcb45da3": {
-      "workers": {
-        "app/login/page": {
-          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "signOut",
-          "filename": "src/app/auth/actions.ts"
-        }
-      },
-      "layer": {
-        "app/login/page": "rsc"
-      },
-      "filename": "src/app/auth/actions.ts",
-      "exportedName": "signOut"
-    },
-    "40ac0d68172a1fa4e26a42bdc50bdb3a0bd9769723": {
+    "40e322981d0869a7fc061f5240d24501046e4283fa": {
       "workers": {
         "app/login/page": {
           "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/auth/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
@@ -25,12 +10,12 @@
         }
       },
       "layer": {
-        "app/login/page": "rsc"
+        "app/login/page": "action-browser"
       },
       "filename": "src/app/auth/actions.ts",
       "exportedName": "signIn"
     }
   },
   "edge": {},
-  "encryptionKey": "sMW7hPd7Mc7aSW/UcDoR636Y26UJEg210afvZG301CQ="
+  "encryptionKey": "pc3MHWKwijHmdMlIpEEnC1bG3J0/cES+hHKcj6lUvDE="
 }

@@ -23,7 +23,8 @@ export default async function ClientsPage({
 }: {
   searchParams: { comuna?: string; region?: string; page?: string };
 }) {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const page = parseInt(searchParams.page || '1');
   const limit = 10; // Items per page

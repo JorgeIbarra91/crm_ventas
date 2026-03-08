@@ -1,10 +1,12 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 
 export async function addActivity(formData: FormData) {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -41,7 +43,8 @@ export async function addActivity(formData: FormData) {
 }
 
 export async function toggleTaskCompleted(taskId: string, currentCompletedStatus: boolean) {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const newCompletedAt = currentCompletedStatus ? null : new Date().toISOString();
 

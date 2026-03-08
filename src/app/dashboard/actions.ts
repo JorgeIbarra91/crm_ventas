@@ -1,10 +1,12 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers';
 import moment from 'moment';
 
 export async function getDashboardStats() {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -61,7 +63,8 @@ export async function getDashboardStats() {
 }
 
 export async function getSalesByGeography() {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: { user } } = await supabase.auth.getUser();
 

@@ -1,13 +1,15 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export async function signIn(formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
 
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { error } = await supabase.auth.signInWithPassword({
     email,
@@ -19,11 +21,12 @@ export async function signIn(formData: FormData) {
     return redirect('/login?message=Could not authenticate user');
   }
 
-  return redirect('/');
+  return redirect('/dashboard');
 }
 
 export async function signOut() {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { error } = await supabase.auth.signOut();
 

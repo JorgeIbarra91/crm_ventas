@@ -21,7 +21,8 @@ export default async function SalesHistoryPage({
 }: {
   searchParams: { startDate?: string; endDate?: string };
 }) {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: { user } } = await supabase.auth.getUser();
 

@@ -20,7 +20,8 @@ interface ClientDetails {
 
 export default async function ClientDetailsPage({ params }: { params: { rut: string } }) {
   const { rut } = params;
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: client, error } = await supabase
     .from('client_status') // Use the view that includes status_color

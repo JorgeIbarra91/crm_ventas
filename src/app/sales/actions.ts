@@ -1,10 +1,12 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export async function searchClientsForSale(query: string) {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data, error } = await supabase
     .from('clients')
@@ -25,7 +27,8 @@ export async function addSale(formData: FormData) {
   const sale_date = formData.get('sale_date') as string;
   const notes = formData.get('notes') as string;
 
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   // Get current user's ID to use as rep_id
   const { data: { user } } = await supabase.auth.getUser();

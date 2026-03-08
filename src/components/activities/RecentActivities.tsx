@@ -36,7 +36,8 @@ const ActivityIcon = ({ type }: { type: Activity['type'] }) => {
 
 
 export default async function RecentActivities() {
-  const supabase = createServerClientFromCookies();
+  const cookieStore = await cookies();
+  const supabase = createServerClientFromCookies(cookieStore);
 
   const { data: { user } } = await supabase.auth.getUser();
 
