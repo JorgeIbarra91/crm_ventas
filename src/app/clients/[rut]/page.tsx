@@ -1,9 +1,9 @@
 import React from 'react';
-import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 import ActivityLog from '@/components/activities/ActivityLog';
 import NewActivityForm from '@/components/activities/NewActivityForm';
+import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,16 +12,15 @@ interface ClientDetails {
   name: string;
   email: string | null;
   phone: string | null;
-  comunas: { name: string } | null;
-  regions: { name: string } | null;
+  comunas: { name: string }[] | null;
+  regions: { name: string }[] | null;
   last_sale_date: string | null;
   status_color: 'Green' | 'Yellow' | 'Red';
 }
 
 export default async function ClientDetailsPage({ params }: { params: { rut: string } }) {
   const { rut } = params;
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const { data: client, error } = await supabase
     .from('client_status') // Use the view that includes status_color
@@ -76,8 +75,8 @@ export default async function ClientDetailsPage({ params }: { params: { rut: str
           <h2 className="text-2xl font-bold text-slate-100 mb-4">Client Information</h2>
           <p><strong>Email:</strong> {client.email || 'N/A'}</p>
           <p><strong>Phone:</strong> {client.phone || 'N/A'}</p>
-          <p><strong>Comuna:</strong> {client.comunas?.name || 'N/A'}</p>
-          <p><strong>Region:</strong> {client.regions?.name || 'N/A'}</p>
+          <p><strong>Comuna:</strong> {client.comunas?.[0]?.name || 'N/A'}</p>
+          <p><strong>Region:</strong> {client.regions?.[0]?.name || 'N/A'}</p>
           <p><strong>Last Sale Date: </strong>{client.last_sale_date ? new Date(client.last_sale_date).toLocaleDateString() : 'N/A'}</p>
           {/* Purchase History will go here */}
         </div>

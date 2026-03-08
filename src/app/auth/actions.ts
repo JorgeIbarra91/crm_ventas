@@ -1,15 +1,13 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export async function signIn(formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
 
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const { error } = await supabase.auth.signInWithPassword({
     email,
@@ -25,8 +23,7 @@ export async function signIn(formData: FormData) {
 }
 
 export async function signOut() {
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const { error } = await supabase.auth.signOut();
 

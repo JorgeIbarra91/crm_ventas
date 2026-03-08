@@ -1,9 +1,9 @@
 import React from 'react';
-import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import { Circle } from 'lucide-react';
 import ImportTool from '@/components/clients/ImportTool'; // Will create this next
 import Link from 'next/link';
+import { createServerClientFromCookies } from '@/lib/supabaseServer';
+import { cookies } from 'next/headers'; // Imported for use with createServerClientFromCookies
 
 export const dynamic = 'force-dynamic';
 
@@ -23,8 +23,7 @@ export default async function ClientsPage({
 }: {
   searchParams: { comuna?: string; region?: string; page?: string };
 }) {
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const page = parseInt(searchParams.page || '1');
   const limit = 10; // Items per page

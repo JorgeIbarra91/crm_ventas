@@ -1,7 +1,6 @@
 'use server';
 
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import { parse } from 'csv-parse/sync';
 
 interface ClientCSV {
@@ -18,8 +17,7 @@ export async function importClients(formData: FormData) {
     return { success: false, error: 'No CSV file provided.' };
   }
 
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   try {
     const csvBuffer = await csvFile.arrayBuffer();

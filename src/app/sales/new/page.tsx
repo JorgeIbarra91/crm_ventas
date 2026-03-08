@@ -60,11 +60,11 @@ export default function NewSalePage() {
     const result = await addSale(formData); // Use the actual server action here
 
     if (result.success) {
-      setMessage({ type: 'success', text: result.message });
+      setMessage({ type: 'success', text: result.message ?? 'Operation successful!' });
       // Redirect to client profile page - placeholder for now
       router.push(`/clients/${selectedClient.rut}`); // Example redirect
     } else {
-      setMessage({ type: 'error', text: result.message });
+      setMessage({ type: 'error', text: result.message ?? 'Operation failed.' });
     }
   };
 

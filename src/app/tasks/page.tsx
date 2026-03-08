@@ -92,7 +92,7 @@ export default function TasksPage() {
       // Optimistically update UI or re-fetch
       fetchTasks();
     } else {
-      setError(result.error);
+      setError(result.error ?? null);
       setLoading(false);
     }
   };

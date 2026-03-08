@@ -1,8 +1,7 @@
 import React from 'react';
-import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import { Phone, Mail, Users, CheckSquare, Calendar, Clock } from 'lucide-react';
 import moment from 'moment';
+import { createServerClientFromCookies } from '@/lib/supabaseServer';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,8 +34,7 @@ const ActivityIcon = ({ type }: { type: Activity['type'] }) => {
 };
 
 export default async function ActivityLog({ clientRut, filterType = 'all' }: ActivityLogProps) {
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   let query = supabase
     .from('activities')

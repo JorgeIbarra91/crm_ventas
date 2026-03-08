@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/auth/callback/route": "/auth/callback",
+  "/clients/[rut]/page": "/clients/[rut]",
+  "/clients/page": "/clients",
+  "/dashboard/page": "/dashboard",
+  "/login/page": "/login",
+  "/sales/new/page": "/sales/new",
+  "/sales/page": "/sales",
+  "/tasks/page": "/tasks"
+}

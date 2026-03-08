@@ -1,7 +1,7 @@
 import React from 'react';
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
-import { cookies } from 'next/headers';
 import moment from 'moment';
+import { cookies } from 'next/headers'; // This import needs to be here.
 import { Phone, Mail, Users, CheckSquare } from 'lucide-react';
 import Link from 'next/link';
 
@@ -36,8 +36,7 @@ const ActivityIcon = ({ type }: { type: Activity['type'] }) => {
 
 
 export default async function RecentActivities() {
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const { data: { user } } = await supabase.auth.getUser();
 

@@ -59,7 +59,7 @@ export default function AlertPanel() {
 
       {redClients.length > 0 && (
         <div>
-          <h3 className="text-xl font-semibold text-red-500 mb-4">Red Clients (>60 days)</h3>
+<h3 className="text-xl font-semibold text-red-500 mb-4">Red Clients ({'>'}60 days)</h3>
           <ul className="space-y-4">
             {redClients.map((client) => (
               <li key={client.rut} className="flex justify-between items-center bg-zinc-700 p-4 rounded-md">

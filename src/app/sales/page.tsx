@@ -1,7 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 import { createServerClientFromCookies } from '@/lib/supabaseServer';
 import { cookies } from 'next/headers';
-import moment from 'moment';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +10,7 @@ interface Sale {
   client_rut: string;
   clients: {
     name: string;
-  } | null; // Can be null if client is not found
+  }[] | null; // Can be null if client is not found or returns as array
   amount: number;
   sale_date: string;
   notes: string | null;
@@ -21,8 +21,7 @@ export default async function SalesHistoryPage({
 }: {
   searchParams: { startDate?: string; endDate?: string };
 }) {
-  const cookieStore = cookies();
-  const supabase = createServerClientFromCookies(cookieStore);
+  const supabase = createServerClientFromCookies();
 
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -115,7 +114,7 @@ export default async function SalesHistoryPage({
           <tbody className="divide-y divide-zinc-700">
             {sales?.map((sale) => (
               <tr key={sale.id} className="hover:bg-zinc-700 odd:bg-zinc-800 even:bg-zinc-850">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-100">{sale.clients?.name || 'N/A'}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-100">{sale.clients?.[0]?.name || 'N/A'}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-300">{sale.client_rut}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-300">${sale.amount.toFixed(2)}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-300">{moment(sale.sale_date).format('YYYY-MM-DD')}</td>
