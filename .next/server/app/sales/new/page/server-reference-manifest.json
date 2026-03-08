@@ -1,0 +1,35 @@
+{
+  "node": {
+    "4062dd27e697cf3a11f4badcf85b3d231536ba73c7": {
+      "workers": {
+        "app/sales/new/page": {
+          "moduleId": 11599,
+          "async": false,
+          "exportedName": "searchClientsForSale",
+          "filename": "src/app/sales/actions.ts"
+        }
+      },
+      "layer": {
+        "app/sales/new/page": "action-browser"
+      },
+      "exportedName": "searchClientsForSale",
+      "filename": "src/app/sales/actions.ts"
+    },
+    "4093d16040f7d56e2be54f8a00c64a3dd2e26d5fef": {
+      "workers": {
+        "app/sales/new/page": {
+          "moduleId": 11599,
+          "async": false,
+          "exportedName": "addSale",
+          "filename": "src/app/sales/actions.ts"
+        }
+      },
+      "layer": {
+        "app/sales/new/page": "action-browser"
+      },
+      "exportedName": "addSale",
+      "filename": "src/app/sales/actions.ts"
+    }
+  },
+  "edge": {}
+}

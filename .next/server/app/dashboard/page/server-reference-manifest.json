@@ -1,0 +1,35 @@
+{
+  "node": {
+    "00ea0f887160b316b9abfaad310632937361bae0cb": {
+      "workers": {
+        "app/dashboard/page": {
+          "moduleId": 56241,
+          "async": false,
+          "exportedName": "getDashboardStats",
+          "filename": "src/app/dashboard/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/page": "action-browser"
+      },
+      "exportedName": "getDashboardStats",
+      "filename": "src/app/dashboard/actions.ts"
+    },
+    "002e807417df80d2b38966ca47c1dedfb7234fcc03": {
+      "workers": {
+        "app/dashboard/page": {
+          "moduleId": 56241,
+          "async": false,
+          "exportedName": "getSalesByGeography",
+          "filename": "src/app/dashboard/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/page": "action-browser"
+      },
+      "exportedName": "getSalesByGeography",
+      "filename": "src/app/dashboard/actions.ts"
+    }
+  },
+  "edge": {}
+}

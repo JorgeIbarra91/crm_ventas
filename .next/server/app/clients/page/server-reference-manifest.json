@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40d8f5da1720f1522a0f3d3b4f7b4eb6aade3eb2c4": {
+      "workers": {
+        "app/clients/page": {
+          "moduleId": 92919,
+          "async": false,
+          "exportedName": "importClients",
+          "filename": "src/app/clients/actions.ts"
+        }
+      },
+      "layer": {
+        "app/clients/page": "action-browser"
+      },
+      "exportedName": "importClients",
+      "filename": "src/app/clients/actions.ts"
+    }
+  },
+  "edge": {}
+}

@@ -1,0 +1,20 @@
+{
+  "node": {
+    "605821a6c19a8fb19e18e9a37a635566b76cb9f0d9": {
+      "workers": {
+        "app/tasks/page": {
+          "moduleId": 82013,
+          "async": false,
+          "exportedName": "toggleTaskCompleted",
+          "filename": "src/app/activities/actions.ts"
+        }
+      },
+      "layer": {
+        "app/tasks/page": "action-browser"
+      },
+      "exportedName": "toggleTaskCompleted",
+      "filename": "src/app/activities/actions.ts"
+    }
+  },
+  "edge": {}
+}

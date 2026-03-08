@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40951a06b0e50ec691c87aa87213c15aabc3644b23": {
+      "workers": {
+        "app/clients/[rut]/page": {
+          "moduleId": 34537,
+          "async": false,
+          "exportedName": "addActivity",
+          "filename": "src/app/activities/actions.ts"
+        }
+      },
+      "layer": {
+        "app/clients/[rut]/page": "action-browser"
+      },
+      "exportedName": "addActivity",
+      "filename": "src/app/activities/actions.ts"
+    }
+  },
+  "edge": {}
+}
